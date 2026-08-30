@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../third_party/doctest.h"
+#include "../../third_party/doctest.h"
 
 // Reuse the class definitions straight from sandbox.cpp instead of
 // duplicating them here. ATM_TESTING suppresses sandbox.cpp's own main()

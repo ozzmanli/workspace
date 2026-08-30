@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 // Sandbox: scratch space for trying things out before turning an idea into
 // a proper solved-problem file. Nothing in here is "the solution" to
