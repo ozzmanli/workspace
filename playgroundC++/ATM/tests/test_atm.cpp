@@ -1,19 +1,19 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../third_party/doctest.h"
 
-// Reuse the class definitions straight from sandbox.cpp instead of
-// duplicating them here. ATM_TESTING suppresses sandbox.cpp's own main()
+// Reuse the class definitions straight from atm.cpp instead of
+// duplicating them here. ATM_TESTING suppresses atm.cpp's own main()
 // (see the #ifndef guard there) so this binary has exactly one main() -
 // the one doctest generates for us above.
 #define ATM_TESTING
-#include "../sandbox.cpp"
+#include "../atm.cpp"
 
 TEST_CASE("ATM can be constructed and destroyed without crashing") {
     ATM myAtm;
     CHECK(true);  // reaching this line means construction/destruction didn't blow up
 }
 
-// --- The methods below are still empty stubs in sandbox.cpp. These test
+// --- The methods below are still empty stubs in atm.cpp. These test
 // cases just confirm they can be called without crashing for now. As you
 // implement each one for real, replace the CHECK with an actual assertion
 // about the behavior (e.g. that a balance changed).

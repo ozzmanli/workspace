@@ -137,12 +137,12 @@ ATM::~ATM()
     std::cout << "ATM Destroyed" << std::endl;
 }
 
-// ATM_TESTING is defined by tests/test_sandbox.cpp before it #includes this
+// ATM_TESTING is defined by tests/test_atm.cpp before it #includes this
 // file, so the test binary (which supplies its own main() via doctest)
 // doesn't end up with two main() functions in one link.
 #ifndef ATM_TESTING
 int main() {
-    std::cout << "C++ sandbox is alive." << std::endl;
+    std::cout << "ATM program is alive." << std::endl;
 
     ATM myAtm;   // constructor runs here -> prints "ATM created"
 

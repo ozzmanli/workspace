@@ -17,7 +17,7 @@ PY_DIR := playgroundPython
 # C++: each problem lives in its own subfolder (e.g. playgroundC++/ATM/,
 # playgroundC++/recursiveStringReversal/), since some problems need more
 # than one file (a .h alongside the .cpp) or a tests/ subfolder. The
-# subfolder name doesn't have to match the .cpp filename (ATM/sandbox.cpp
+# subfolder name doesn't have to match the .cpp filename (ATM/atm.cpp
 # is a real example), so binaries are named after the .cpp file itself.
 C_SRCS := $(wildcard $(C_DIR)/*.c)
 CPP_SRCS := $(shell find $(CPP_DIR) -mindepth 2 -maxdepth 2 -name '*.cpp' -not -path '*/tests/*')
@@ -28,8 +28,8 @@ CPP_BINS := $(foreach src,$(CPP_SRCS),$(CPP_DIR)/bin/$(basename $(notdir $(src))
 
 # --- Tests ---
 DOCTEST_INC := $(CPP_DIR)/third_party
-CPP_TEST_SRC := $(CPP_DIR)/ATM/tests/test_sandbox.cpp
-CPP_TEST_BIN := $(CPP_DIR)/bin/test_sandbox
+CPP_TEST_SRC := $(CPP_DIR)/ATM/tests/test_atm.cpp
+CPP_TEST_BIN := $(CPP_DIR)/bin/test_atm
 C_TEST_SRC := $(C_DIR)/tests/test_recursiveStringReversal.c
 C_TEST_BIN := $(C_DIR)/bin/test_recursiveStringReversal
 
@@ -43,8 +43,8 @@ $(C_DIR)/bin/%: $(C_DIR)/%.c
 	@mkdir -p $(C_DIR)/bin
 	$(CC) $(CFLAGS) -o $@ $<
 
-# One build rule generated per discovered C++ source file, so ATM/sandbox.cpp
-# -> bin/sandbox, recursiveStringReversal/recursiveStringReversal.cpp ->
+# One build rule generated per discovered C++ source file, so ATM/atm.cpp
+# -> bin/atm, recursiveStringReversal/recursiveStringReversal.cpp ->
 # bin/recursiveStringReversal, etc, regardless of subfolder naming.
 define CPP_BUILD_RULE
 $(CPP_DIR)/bin/$(basename $(notdir $(1))): $(1)
@@ -72,7 +72,7 @@ test-cpp: $(CPP_TEST_BIN)
 	@echo "--- C++ tests ---"
 	@./$(CPP_TEST_BIN)
 
-$(CPP_TEST_BIN): $(CPP_TEST_SRC) $(CPP_DIR)/ATM/sandbox.cpp
+$(CPP_TEST_BIN): $(CPP_TEST_SRC) $(CPP_DIR)/ATM/atm.cpp
 	@mkdir -p $(CPP_DIR)/bin
 	$(CXX) $(CXXFLAGS) -I $(DOCTEST_INC) -o $@ $(CPP_TEST_SRC)
 
