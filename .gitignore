@@ -1,0 +1,10 @@
+# Compiled binaries
+playgroundC/bin/
+playgroundC++/bin/
+
+# Python
+__pycache__/
+*.pyc
+
+# Unrelated large embedded-Linux workspace (own project, own repo, ~3.5GB)
+ldd/
